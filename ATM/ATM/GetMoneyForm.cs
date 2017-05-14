@@ -41,18 +41,35 @@ namespace ATM
             string outputMessage = string.Empty;
             Dictionary<ATMData.BILL_TYPE, int> returnedMoney;
             OperationResultForm resultForm = null;
-            if (mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney))
-            {
-                resultForm = new OperationResultForm(returnedMoney, outputMessage, sum);
-            }
-            {
-                resultForm = new OperationResultForm(returnedMoney, outputMessage, 0);
-            }
+            mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney);
             
+            resultForm = new OperationResultForm(returnedMoney, outputMessage, sum);
             resultForm.StartPosition = FormStartPosition.CenterParent;
             resultForm.ShowDialog();
             
             
+        }
+
+        private void mSumField_ValueChanged(object sender, EventArgs e)
+        {
+            int sum = (int)mSumField.Value;
+            sum = (sum / 10) * 10;
+            mSumField.Value = sum;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mPrefCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

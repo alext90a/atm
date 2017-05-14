@@ -17,15 +17,17 @@ namespace ATM
             InitializeComponent();
             
             mOutMessageField.Text = outputMessage;
-            mNomGB.Parent = mRetMoneyGB;
+            //mNomGB.Parent = mRetMoneyGB;
 
             if(returnedSum == 0)
             {
                 mRetMoneyGB.Visible = false;
+                mNomGB.Visible = false;
             }
             else
             {
                 mRetMoneyGB.Visible = true;
+                mNomGB.Visible = true;
                 m10NominalField.Value = returnedMoney[ATMData.BILL_TYPE.TYPE_10];
                 m50NominalField.Value = returnedMoney[ATMData.BILL_TYPE.TYPE_50];
                 m100NominalField.Value = returnedMoney[ATMData.BILL_TYPE.TYPE_100];

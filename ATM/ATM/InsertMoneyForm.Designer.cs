@@ -41,7 +41,6 @@
             this.m10NominalField = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.mCancelBtn = new System.Windows.Forms.Button();
-            this.mOutMessageField = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m100NominalField)).BeginInit();
@@ -62,15 +61,16 @@
             // 
             this.mSumTB.Location = new System.Drawing.Point(117, 41);
             this.mSumTB.Name = "mSumTB";
+            this.mSumTB.ReadOnly = true;
             this.mSumTB.Size = new System.Drawing.Size(100, 20);
             this.mSumTB.TabIndex = 1;
             // 
             // mInsertBtn
             // 
             this.mInsertBtn.Enabled = false;
-            this.mInsertBtn.Location = new System.Drawing.Point(183, 356);
+            this.mInsertBtn.Location = new System.Drawing.Point(184, 227);
             this.mInsertBtn.Name = "mInsertBtn";
-            this.mInsertBtn.Size = new System.Drawing.Size(139, 23);
+            this.mInsertBtn.Size = new System.Drawing.Size(140, 23);
             this.mInsertBtn.TabIndex = 2;
             this.mInsertBtn.Text = "Insert";
             this.mInsertBtn.UseVisualStyleBackColor = true;
@@ -167,7 +167,7 @@
             // 
             // mCancelBtn
             // 
-            this.mCancelBtn.Location = new System.Drawing.Point(26, 356);
+            this.mCancelBtn.Location = new System.Drawing.Point(27, 227);
             this.mCancelBtn.Name = "mCancelBtn";
             this.mCancelBtn.Size = new System.Drawing.Size(139, 23);
             this.mCancelBtn.TabIndex = 4;
@@ -175,28 +175,18 @@
             this.mCancelBtn.UseVisualStyleBackColor = true;
             this.mCancelBtn.Click += new System.EventHandler(this.mCancelBtn_Click);
             // 
-            // mOutMessageField
-            // 
-            this.mOutMessageField.Enabled = false;
-            this.mOutMessageField.Location = new System.Drawing.Point(26, 239);
-            this.mOutMessageField.Multiline = true;
-            this.mOutMessageField.Name = "mOutMessageField";
-            this.mOutMessageField.Size = new System.Drawing.Size(296, 101);
-            this.mOutMessageField.TabIndex = 6;
-            // 
             // InsertMoneyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 410);
-            this.Controls.Add(this.mOutMessageField);
+            this.ClientSize = new System.Drawing.Size(342, 297);
             this.Controls.Add(this.mCancelBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mInsertBtn);
             this.Controls.Add(this.mSumTB);
             this.Controls.Add(this.label1);
             this.Name = "InsertMoneyForm";
-            this.Text = "InsertMoneyForm";
+            this.Text = "Insert your money";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).EndInit();
@@ -223,6 +213,5 @@
         private System.Windows.Forms.NumericUpDown m10NominalField;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button mCancelBtn;
-        private System.Windows.Forms.TextBox mOutMessageField;
     }
 }

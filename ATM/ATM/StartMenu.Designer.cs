@@ -35,7 +35,7 @@
             // 
             // mGetMoneyButton
             // 
-            this.mGetMoneyButton.Location = new System.Drawing.Point(361, 222);
+            this.mGetMoneyButton.Location = new System.Drawing.Point(95, 172);
             this.mGetMoneyButton.Name = "mGetMoneyButton";
             this.mGetMoneyButton.Size = new System.Drawing.Size(214, 23);
             this.mGetMoneyButton.TabIndex = 1;
@@ -45,7 +45,7 @@
             // 
             // mInsertMoneyButton
             // 
-            this.mInsertMoneyButton.Location = new System.Drawing.Point(361, 181);
+            this.mInsertMoneyButton.Location = new System.Drawing.Point(95, 131);
             this.mInsertMoneyButton.Name = "mInsertMoneyButton";
             this.mInsertMoneyButton.Size = new System.Drawing.Size(214, 23);
             this.mInsertMoneyButton.TabIndex = 2;
@@ -55,7 +55,7 @@
             // 
             // mShowBankStatButton
             // 
-            this.mShowBankStatButton.Location = new System.Drawing.Point(361, 261);
+            this.mShowBankStatButton.Location = new System.Drawing.Point(95, 211);
             this.mShowBankStatButton.Name = "mShowBankStatButton";
             this.mShowBankStatButton.Size = new System.Drawing.Size(214, 23);
             this.mShowBankStatButton.TabIndex = 3;
@@ -67,12 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 376);
+            this.ClientSize = new System.Drawing.Size(401, 376);
             this.Controls.Add(this.mShowBankStatButton);
             this.Controls.Add(this.mInsertMoneyButton);
             this.Controls.Add(this.mGetMoneyButton);
             this.Name = "StartMenu";
-            this.Text = "Mode";
+            this.Text = "ATM";
             this.ResumeLayout(false);
 
         }

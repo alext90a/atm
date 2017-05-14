@@ -59,11 +59,23 @@ namespace ATM
             int sum = Convert.ToInt32(mSumTB.Text);
             string outputMessage = string.Empty;
             bool res = mAtmData.tryToInsertMoney(sum, mMoneyInserted, ref outputMessage);
+
+            int returnedSum = 0;
+            foreach(var curPair in mMoneyInserted)
+            {
+                returnedSum += (int)curPair.Key * curPair.Value;
+            }
+            if(sum != returnedSum)
+            {
+                outputMessage += "\nInserted sum is " + (sum - returnedSum).ToString();
+            }
+            OperationResultForm resultForm = new OperationResultForm(mMoneyInserted, outputMessage, returnedSum);
+            resultForm.StartPosition = FormStartPosition.CenterParent;
+            resultForm.ShowDialog();
             if(res)
             {
                 updateInsertedMoney();
             }
-            mOutMessageField.Text = outputMessage;
 
         }
 

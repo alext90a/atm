@@ -14,15 +14,13 @@ namespace ATM
     {
         
         ATMData mAtmData = null;
+        ATMStateForm mStateForm = null;
         public StartMenu(ATMData atmData)
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
 
             mAtmData = atmData;
-            
-            
-            
         }
 
         private void mInsertMoneyButton_Click(object sender, EventArgs e)
@@ -46,13 +44,17 @@ namespace ATM
 
         private void mShowBankStatButton_Click(object sender, EventArgs e)
         {
-            ATMStateForm stateForm = new ATMStateForm(mAtmData);
-            stateForm.Show(this);
+            if(mStateForm == null)
+            {
+                mStateForm = new ATMStateForm(mAtmData);
+                mStateForm.Show(this);
+            }
+            mStateForm.Focus();
             Point startPoint = new Point();
             startPoint.X = Location.X + Width;
             startPoint.Y = Location.Y;
-            stateForm.Location = startPoint;
-            stateForm.StartPosition = FormStartPosition.Manual;
+            mStateForm.Location = startPoint;
+            mStateForm.StartPosition = FormStartPosition.Manual;
         }
     }
 }

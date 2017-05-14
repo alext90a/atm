@@ -44,7 +44,7 @@
             0,
             0,
             0});
-            this.mSumField.Location = new System.Drawing.Point(191, 54);
+            this.mSumField.Location = new System.Drawing.Point(154, 58);
             this.mSumField.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -53,37 +53,41 @@
             this.mSumField.Name = "mSumField";
             this.mSumField.Size = new System.Drawing.Size(120, 20);
             this.mSumField.TabIndex = 0;
+            this.mSumField.ValueChanged += new System.EventHandler(this.mSumField_ValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(150, 56);
+            this.label1.Location = new System.Drawing.Point(113, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Sum:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // mPrefCB
             // 
             this.mPrefCB.FormattingEnabled = true;
-            this.mPrefCB.Location = new System.Drawing.Point(191, 111);
+            this.mPrefCB.Location = new System.Drawing.Point(154, 115);
             this.mPrefCB.Name = "mPrefCB";
             this.mPrefCB.Size = new System.Drawing.Size(121, 21);
             this.mPrefCB.TabIndex = 2;
+            this.mPrefCB.SelectedIndexChanged += new System.EventHandler(this.mPrefCB_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(123, 114);
+            this.label2.Location = new System.Drawing.Point(86, 118);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Preferable:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // mGetMoneyBtn
             // 
-            this.mGetMoneyBtn.Location = new System.Drawing.Point(256, 460);
+            this.mGetMoneyBtn.Location = new System.Drawing.Point(200, 212);
             this.mGetMoneyBtn.Name = "mGetMoneyBtn";
             this.mGetMoneyBtn.Size = new System.Drawing.Size(75, 23);
             this.mGetMoneyBtn.TabIndex = 4;
@@ -93,7 +97,7 @@
             // 
             // mCancelBtn
             // 
-            this.mCancelBtn.Location = new System.Drawing.Point(129, 460);
+            this.mCancelBtn.Location = new System.Drawing.Point(73, 212);
             this.mCancelBtn.Name = "mCancelBtn";
             this.mCancelBtn.Size = new System.Drawing.Size(75, 23);
             this.mCancelBtn.TabIndex = 5;
@@ -105,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 531);
+            this.ClientSize = new System.Drawing.Size(342, 297);
             this.Controls.Add(this.mCancelBtn);
             this.Controls.Add(this.mGetMoneyBtn);
             this.Controls.Add(this.label2);
@@ -113,7 +117,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mSumField);
             this.Name = "GetMoneyForm";
-            this.Text = "GetMoneyForm";
+            this.Text = "Request money";
             ((System.ComponentModel.ISupportInitialize)(this.mSumField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

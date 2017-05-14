@@ -106,7 +106,7 @@ namespace ATM
             int sumNeeded = sum;
             foreach(var curKey in mMoneyStore.Reverse())
             {
-                if(sumNeeded > mMoneyStore[preferedType].getNominal())
+                if(sumNeeded >= mMoneyStore[preferedType].getNominal())
                 {
                     int prefBillAvailable = mMoneyStore[preferedType].getAmount() - outputSum[preferedType];
                     int sumAvailaleByPrefBill = mMoneyStore[preferedType].getNominal() * prefBillAvailable;
@@ -123,7 +123,7 @@ namespace ATM
                     }                    
                 }
 
-                if(sumNeeded > mMoneyStore[curKey.Key].getNominal())
+                if(sumNeeded >= mMoneyStore[curKey.Key].getNominal())
                 {
                     int prefBillAvailable = mMoneyStore[preferedType].getAmount() - outputSum[preferedType];
                     int sumAvailaleByPrefBill = mMoneyStore[preferedType].getNominal() * prefBillAvailable;
@@ -176,6 +176,7 @@ namespace ATM
         public bool tryToInsertMoney(int sum, Dictionary<BILL_TYPE, int> money, ref string outMessage)
         {
             StringBuilder sb = new StringBuilder();
+            
             foreach(var curKey in money.Keys.ToList())
             {
                 int billCouldBeAdded = mMoneyStore[curKey].getEmptyAmount();
