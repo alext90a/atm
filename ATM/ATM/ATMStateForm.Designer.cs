@@ -68,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.m10NominalField);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(131, 67);
+            this.groupBox1.Location = new System.Drawing.Point(85, 128);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(257, 157);
             this.groupBox1.TabIndex = 4;
@@ -149,7 +149,7 @@
             // 
             // mSumField
             // 
-            this.mSumField.Location = new System.Drawing.Point(205, 35);
+            this.mSumField.Location = new System.Drawing.Point(159, 96);
             this.mSumField.Name = "mSumField";
             this.mSumField.ReadOnly = true;
             this.mSumField.Size = new System.Drawing.Size(120, 20);
@@ -158,7 +158,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(128, 38);
+            this.label6.Location = new System.Drawing.Point(82, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 7;
@@ -218,7 +218,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 261);
+            this.ClientSize = new System.Drawing.Size(401, 376);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mSumField);
             this.Controls.Add(this.groupBox1);

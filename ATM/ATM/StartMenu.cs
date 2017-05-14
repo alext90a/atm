@@ -19,8 +19,9 @@ namespace ATM
         {
             StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-
+            
             mAtmData = atmData;
+            mStateForm = new ATMStateForm(mAtmData);
         }
 
         private void mInsertMoneyButton_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace ATM
 
         private void mShowBankStatButton_Click(object sender, EventArgs e)
         {
-            if(mStateForm == null)
+            if(!mStateForm.Visible)
             {
                 mStateForm = new ATMStateForm(mAtmData);
                 mStateForm.Show(this);

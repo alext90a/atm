@@ -19,6 +19,7 @@ namespace ATM
             mAtmData = atmData;
             mAtmData.MoneyChangedEvent += onAtmMoneyChanged;
             onAtmMoneyChanged();
+            FormClosing += (object sender, FormClosingEventArgs e) => { mAtmData.MoneyChangedEvent -= onAtmMoneyChanged; };
         }
 
         void onAtmMoneyChanged()

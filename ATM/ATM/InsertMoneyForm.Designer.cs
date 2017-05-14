@@ -51,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 44);
+            this.label1.Location = new System.Drawing.Point(99, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // 
             // mSumTB
             // 
-            this.mSumTB.Location = new System.Drawing.Point(117, 41);
+            this.mSumTB.Location = new System.Drawing.Point(140, 89);
             this.mSumTB.Name = "mSumTB";
             this.mSumTB.ReadOnly = true;
             this.mSumTB.Size = new System.Drawing.Size(100, 20);
@@ -68,7 +68,7 @@
             // mInsertBtn
             // 
             this.mInsertBtn.Enabled = false;
-            this.mInsertBtn.Location = new System.Drawing.Point(184, 227);
+            this.mInsertBtn.Location = new System.Drawing.Point(207, 275);
             this.mInsertBtn.Name = "mInsertBtn";
             this.mInsertBtn.Size = new System.Drawing.Size(140, 23);
             this.mInsertBtn.TabIndex = 2;
@@ -86,7 +86,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.m10NominalField);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(78, 81);
+            this.groupBox1.Location = new System.Drawing.Point(101, 129);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 128);
             this.groupBox1.TabIndex = 3;
@@ -167,7 +167,7 @@
             // 
             // mCancelBtn
             // 
-            this.mCancelBtn.Location = new System.Drawing.Point(27, 227);
+            this.mCancelBtn.Location = new System.Drawing.Point(50, 275);
             this.mCancelBtn.Name = "mCancelBtn";
             this.mCancelBtn.Size = new System.Drawing.Size(139, 23);
             this.mCancelBtn.TabIndex = 4;
@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 297);
+            this.ClientSize = new System.Drawing.Size(401, 376);
             this.Controls.Add(this.mCancelBtn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.mInsertBtn);

@@ -44,7 +44,7 @@
             0,
             0,
             0});
-            this.mSumField.Location = new System.Drawing.Point(154, 58);
+            this.mSumField.Location = new System.Drawing.Point(176, 90);
             this.mSumField.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -58,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 60);
+            this.label1.Location = new System.Drawing.Point(135, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
@@ -68,7 +68,7 @@
             // mPrefCB
             // 
             this.mPrefCB.FormattingEnabled = true;
-            this.mPrefCB.Location = new System.Drawing.Point(154, 115);
+            this.mPrefCB.Location = new System.Drawing.Point(176, 147);
             this.mPrefCB.Name = "mPrefCB";
             this.mPrefCB.Size = new System.Drawing.Size(121, 21);
             this.mPrefCB.TabIndex = 2;
@@ -77,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 118);
+            this.label2.Location = new System.Drawing.Point(108, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 3;
@@ -87,7 +87,7 @@
             // 
             // mGetMoneyBtn
             // 
-            this.mGetMoneyBtn.Location = new System.Drawing.Point(200, 212);
+            this.mGetMoneyBtn.Location = new System.Drawing.Point(222, 244);
             this.mGetMoneyBtn.Name = "mGetMoneyBtn";
             this.mGetMoneyBtn.Size = new System.Drawing.Size(75, 23);
             this.mGetMoneyBtn.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             // mCancelBtn
             // 
-            this.mCancelBtn.Location = new System.Drawing.Point(73, 212);
+            this.mCancelBtn.Location = new System.Drawing.Point(95, 244);
             this.mCancelBtn.Name = "mCancelBtn";
             this.mCancelBtn.Size = new System.Drawing.Size(75, 23);
             this.mCancelBtn.TabIndex = 5;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(342, 297);
+            this.ClientSize = new System.Drawing.Size(401, 376);
             this.Controls.Add(this.mCancelBtn);
             this.Controls.Add(this.mGetMoneyBtn);
             this.Controls.Add(this.label2);
