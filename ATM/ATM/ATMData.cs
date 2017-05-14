@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace ATM
 {
-    class ATMData
+    public class ATMData
     {
         public enum BILL_TYPE
         {
@@ -80,7 +80,8 @@ namespace ATM
             mMoneyStore.Add(BILL_TYPE.TYPE_100, new BillHolder(100, ATMConstants.kBillMaxAmount100));
             mMoneyStore.Add(BILL_TYPE.TYPE_500, new BillHolder(500, ATMConstants.kBillMaxAmount500));
         }
-         
+        public delegate void OnMoneyStoreChanged();
+        public event OnMoneyStoreChanged MoneyChangedEvent; 
         SortedDictionary<BILL_TYPE, BillHolder> mMoneyStore = new SortedDictionary<BILL_TYPE, BillHolder>();
 
         public bool tryToGiveAwayMoney(int sum, BILL_TYPE preferedType, ref string outMessage, out Dictionary<BILL_TYPE, int> outputSum)
@@ -131,33 +132,43 @@ namespace ATM
                     }
                 }
             }
+            if(MoneyChangedEvent != null)
+            {
+                MoneyChangedEvent();
+            }
             return true;
         } 
 
         public bool tryToInsertMoney(int sum, Dictionary<BILL_TYPE, int> money, ref string outMessage)
         {
             StringBuilder sb = new StringBuilder();
-            foreach(var curPair in money)
+            foreach(var curKey in money.Keys.ToList())
             {
-                int billCouldBeAdded = mMoneyStore[curPair.Key].getEmptyAmount();
-                if(billCouldBeAdded>= curPair.Value)
+                int billCouldBeAdded = mMoneyStore[curKey].getEmptyAmount();
+                if(billCouldBeAdded>= money[curKey])
                 {
-                    mMoneyStore[curPair.Key].tryAddAmount(curPair.Value);
-                    money[curPair.Key] = 0;                    
+                    mMoneyStore[curKey].tryAddAmount(money[curKey]);
+                    money[curKey] = 0;                    
                 }
                 else
                 {
-                    int billWouldBeAdded = curPair.Value - billCouldBeAdded;
-                    mMoneyStore[curPair.Key].tryAddAmount(billWouldBeAdded);
-                    money[curPair.Key] = curPair.Value - billWouldBeAdded;
+                    //int billWouldBeAdded = money[curKey] - billCouldBeAdded;
+                    mMoneyStore[curKey].tryAddAmount(billCouldBeAdded);
+                    money[curKey] -= billCouldBeAdded;
 
                     sb.Append("Money holder for bill type: ");
-                    sb.Append(curPair.Key.ToString());
+                    sb.Append(curKey.ToString());
                     sb.Append(" is full, some bills returned");
                     sb.Append("\n");
+
                 }
             }
-            return false;
+            if (MoneyChangedEvent != null)
+            {
+                MoneyChangedEvent();
+            }
+            outMessage = sb.ToString();
+            return true;
         }
 
         public int getMoneySum()

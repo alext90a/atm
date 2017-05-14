@@ -8,9 +8,9 @@ namespace ATM
 {
     class ATMConstants
     {
-        public static int kBillMaxAmount10 = 20;
-        public static int kBillMaxAmount50 = 20;
-        public static int kBillMaxAmount100 = 20;
-        public static int kBillMaxAmount500 = 20;
+        public static int kBillMaxAmount10 = 10;
+        public static int kBillMaxAmount50 = 10;
+        public static int kBillMaxAmount100 = 10;
+        public static int kBillMaxAmount500 = 10;
     }
 }
