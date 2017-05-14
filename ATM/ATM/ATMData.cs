@@ -117,8 +117,7 @@ namespace ATM
                     int sumAvailaleByPrefBill = mMoneyStore[preferedType].getNominal() * prefBillAvailable;
                     if(sumNeeded < sumAvailaleByPrefBill)
                     {
-                        int billWouldBeSpended = sumNeeded / mMoneyStore[preferedType].getNominal();
-                        
+                        int billWouldBeSpended = sumNeeded / mMoneyStore[preferedType].getNominal();                        
                         outputSum[preferedType] += billWouldBeSpended;
                         sumNeeded -= billWouldBeSpended * mMoneyStore[preferedType].getNominal();
                         if (sumNeeded == 0)
