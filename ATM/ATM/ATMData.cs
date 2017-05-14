@@ -67,6 +67,11 @@ namespace ATM
                 return mNominal;
             }
 
+            public int getMaxAmount()
+            {
+                return mMaxAmount;
+            }
+
             int mAmount;
             int mNominal;
             int mMaxAmount;
@@ -159,6 +164,7 @@ namespace ATM
             }
             else
             {
+                outputSum.Clear();
                 outMessage = "Could not return such sum";
                 return false;
             }
@@ -221,6 +227,11 @@ namespace ATM
         public int getNominalAmount(BILL_TYPE billType)
         {
             return mMoneyStore[billType].getAmount();
+        }
+
+        public int getMaxAmount(BILL_TYPE billType)
+        {
+            return mMoneyStore[billType].getMaxAmount();
         }
     }
 }

@@ -27,6 +27,11 @@ namespace ATM
             m50NominalField.Value = mAtmData.getNominalAmount(ATMData.BILL_TYPE.TYPE_50);
             m100NominalField.Value = mAtmData.getNominalAmount(ATMData.BILL_TYPE.TYPE_100);
             m500NominalField.Value = mAtmData.getNominalAmount(ATMData.BILL_TYPE.TYPE_500);
+
+            mMax10TB.Text = mAtmData.getMaxAmount(ATMData.BILL_TYPE.TYPE_10).ToString();
+            mMax50TB.Text = mAtmData.getMaxAmount(ATMData.BILL_TYPE.TYPE_50).ToString();
+            mMax100TB.Text = mAtmData.getMaxAmount(ATMData.BILL_TYPE.TYPE_100).ToString();
+            mMax500TB.Text = mAtmData.getMaxAmount(ATMData.BILL_TYPE.TYPE_500).ToString();
             mSumField.Text = mAtmData.getMoneySum().ToString();
         }
     }

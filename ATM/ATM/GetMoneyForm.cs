@@ -41,7 +41,10 @@ namespace ATM
             string outputMessage = string.Empty;
             Dictionary<ATMData.BILL_TYPE, int> returnedMoney;
             OperationResultForm resultForm = null;
-            mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney);
+            if(!mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney))
+            {
+                sum = 0;
+            }
             
             resultForm = new OperationResultForm(returnedMoney, outputMessage, sum);
             resultForm.StartPosition = FormStartPosition.CenterParent;
