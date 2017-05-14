@@ -20,6 +20,12 @@ namespace ATM
             InitializeComponent();
             mAtmData = atmData;
             mOnCloseFunc = closeFunc;
+
+            mPrefCB.Items.Add(ATMData.BILL_TYPE.TYPE_10);
+            mPrefCB.Items.Add(ATMData.BILL_TYPE.TYPE_50);
+            mPrefCB.Items.Add(ATMData.BILL_TYPE.TYPE_100);
+            mPrefCB.Items.Add(ATMData.BILL_TYPE.TYPE_500);
+            mPrefCB.SelectedIndex = 0;
         }
 
         private void mCancelBtn_Click(object sender, EventArgs e)
@@ -31,10 +37,22 @@ namespace ATM
         private void mGetMoneyBtn_Click(object sender, EventArgs e)
         {
             int sum = (int)mSumField.Value;
-            ATMData.BILL_TYPE prefType = (ATMData.BILL_TYPE)mPrefCB.SelectedValue;
+            ATMData.BILL_TYPE prefType = (ATMData.BILL_TYPE)mPrefCB.SelectedItem;
             string outputMessage = string.Empty;
             Dictionary<ATMData.BILL_TYPE, int> returnedMoney;
-            mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney);
+            OperationResultForm resultForm = null;
+            if (mAtmData.tryToGiveAwayMoney(sum, prefType, ref outputMessage, out returnedMoney))
+            {
+                resultForm = new OperationResultForm(returnedMoney, outputMessage, sum);
+            }
+            {
+                resultForm = new OperationResultForm(returnedMoney, outputMessage, 0);
+            }
+            
+            resultForm.StartPosition = FormStartPosition.CenterParent;
+            resultForm.ShowDialog();
+            
+            
         }
     }
 }

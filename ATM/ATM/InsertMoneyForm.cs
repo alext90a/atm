@@ -41,6 +41,14 @@ namespace ATM
             {
                 sum += (int)curPair.Key * curPair.Value;
             }
+            if(sum == 0)
+            {
+                mInsertBtn.Enabled = false;
+            }
+            else
+            {
+                mInsertBtn.Enabled = true;
+            }
             return sum;
         }
 
@@ -61,11 +69,6 @@ namespace ATM
 
         void updateInsertedMoney()
         {
-            /*
-            foreach(var curKey in mMoneyInserted.Keys.ToList())
-            {
-                mMoneyInserted[curKey] = 0;
-            }*/
             m10NominalField.Value = mMoneyInserted[ATMData.BILL_TYPE.TYPE_10];
             m50NominalField.Value = mMoneyInserted[ATMData.BILL_TYPE.TYPE_50];
             m100NominalField.Value = mMoneyInserted[ATMData.BILL_TYPE.TYPE_100];

@@ -1,6 +1,6 @@
 ﻿namespace ATM
 {
-    partial class InsertMoneyForm
+    partial class OperationResultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.mSumTB = new System.Windows.Forms.TextBox();
-            this.mInsertBtn = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mOutMessageField = new System.Windows.Forms.TextBox();
+            this.mNomGB = new System.Windows.Forms.GroupBox();
             this.m500NominalField = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.m100NominalField = new System.Windows.Forms.NumericUpDown();
@@ -40,66 +38,52 @@
             this.label3 = new System.Windows.Forms.Label();
             this.m10NominalField = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.mCancelBtn = new System.Windows.Forms.Button();
-            this.mOutMessageField = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.mOkButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mRetSumLbl = new System.Windows.Forms.Label();
+            this.mRetSum = new System.Windows.Forms.TextBox();
+            this.mRetMoneyGB = new System.Windows.Forms.GroupBox();
+            this.mNomGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m100NominalField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m50NominalField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m10NominalField)).BeginInit();
+            this.mRetMoneyGB.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // mOutMessageField
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(76, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Sum:";
+            this.mOutMessageField.Enabled = false;
+            this.mOutMessageField.Location = new System.Drawing.Point(12, 31);
+            this.mOutMessageField.Multiline = true;
+            this.mOutMessageField.Name = "mOutMessageField";
+            this.mOutMessageField.Size = new System.Drawing.Size(296, 101);
+            this.mOutMessageField.TabIndex = 8;
             // 
-            // mSumTB
+            // mNomGB
             // 
-            this.mSumTB.Location = new System.Drawing.Point(117, 41);
-            this.mSumTB.Name = "mSumTB";
-            this.mSumTB.Size = new System.Drawing.Size(100, 20);
-            this.mSumTB.TabIndex = 1;
-            // 
-            // mInsertBtn
-            // 
-            this.mInsertBtn.Enabled = false;
-            this.mInsertBtn.Location = new System.Drawing.Point(183, 356);
-            this.mInsertBtn.Name = "mInsertBtn";
-            this.mInsertBtn.Size = new System.Drawing.Size(139, 23);
-            this.mInsertBtn.TabIndex = 2;
-            this.mInsertBtn.Text = "Insert";
-            this.mInsertBtn.UseVisualStyleBackColor = true;
-            this.mInsertBtn.Click += new System.EventHandler(this.mInsertBtn_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.m500NominalField);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.m100NominalField);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.m50NominalField);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.m10NominalField);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(78, 81);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 128);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nominal";
+            this.mNomGB.Controls.Add(this.m500NominalField);
+            this.mNomGB.Controls.Add(this.label5);
+            this.mNomGB.Controls.Add(this.m100NominalField);
+            this.mNomGB.Controls.Add(this.label4);
+            this.mNomGB.Controls.Add(this.m50NominalField);
+            this.mNomGB.Controls.Add(this.label3);
+            this.mNomGB.Controls.Add(this.m10NominalField);
+            this.mNomGB.Controls.Add(this.label2);
+            this.mNomGB.Location = new System.Drawing.Point(63, 200);
+            this.mNomGB.Name = "mNomGB";
+            this.mNomGB.Size = new System.Drawing.Size(200, 128);
+            this.mNomGB.TabIndex = 7;
+            this.mNomGB.TabStop = false;
+            this.mNomGB.Text = "Nominal";
             // 
             // m500NominalField
             // 
+            this.m500NominalField.Enabled = false;
             this.m500NominalField.Location = new System.Drawing.Point(74, 98);
             this.m500NominalField.Name = "m500NominalField";
             this.m500NominalField.Size = new System.Drawing.Size(120, 20);
             this.m500NominalField.TabIndex = 5;
-            this.m500NominalField.ValueChanged += new System.EventHandler(this.m500NominalField_ValueChanged);
             // 
             // label5
             // 
@@ -113,11 +97,11 @@
             // 
             // m100NominalField
             // 
+            this.m100NominalField.Enabled = false;
             this.m100NominalField.Location = new System.Drawing.Point(74, 72);
             this.m100NominalField.Name = "m100NominalField";
             this.m100NominalField.Size = new System.Drawing.Size(120, 20);
             this.m100NominalField.TabIndex = 5;
-            this.m100NominalField.ValueChanged += new System.EventHandler(this.m100NominalField_ValueChanged);
             // 
             // label4
             // 
@@ -131,11 +115,11 @@
             // 
             // m50NominalField
             // 
+            this.m50NominalField.Enabled = false;
             this.m50NominalField.Location = new System.Drawing.Point(74, 46);
             this.m50NominalField.Name = "m50NominalField";
             this.m50NominalField.Size = new System.Drawing.Size(120, 20);
             this.m50NominalField.TabIndex = 3;
-            this.m50NominalField.ValueChanged += new System.EventHandler(this.m50NominalField_ValueChanged);
             // 
             // label3
             // 
@@ -149,11 +133,11 @@
             // 
             // m10NominalField
             // 
+            this.m10NominalField.Enabled = false;
             this.m10NominalField.Location = new System.Drawing.Point(74, 20);
             this.m10NominalField.Name = "m10NominalField";
             this.m10NominalField.Size = new System.Drawing.Size(120, 20);
             this.m10NominalField.TabIndex = 1;
-            this.m10NominalField.ValueChanged += new System.EventHandler(this.m10NominalField_ValueChanged);
             // 
             // label2
             // 
@@ -165,44 +149,73 @@
             this.label2.Text = "10";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // mCancelBtn
+            // mOkButton
             // 
-            this.mCancelBtn.Location = new System.Drawing.Point(26, 356);
-            this.mCancelBtn.Name = "mCancelBtn";
-            this.mCancelBtn.Size = new System.Drawing.Size(139, 23);
-            this.mCancelBtn.TabIndex = 4;
-            this.mCancelBtn.Text = "Cancel";
-            this.mCancelBtn.UseVisualStyleBackColor = true;
-            this.mCancelBtn.Click += new System.EventHandler(this.mCancelBtn_Click);
+            this.mOkButton.Location = new System.Drawing.Point(91, 358);
+            this.mOkButton.Name = "mOkButton";
+            this.mOkButton.Size = new System.Drawing.Size(135, 23);
+            this.mOkButton.TabIndex = 9;
+            this.mOkButton.Text = "OK";
+            this.mOkButton.UseVisualStyleBackColor = true;
+            this.mOkButton.Click += new System.EventHandler(this.mOkButton_Click);
             // 
-            // mOutMessageField
+            // label1
             // 
-            this.mOutMessageField.Enabled = false;
-            this.mOutMessageField.Location = new System.Drawing.Point(26, 239);
-            this.mOutMessageField.Multiline = true;
-            this.mOutMessageField.Name = "mOutMessageField";
-            this.mOutMessageField.Size = new System.Drawing.Size(296, 101);
-            this.mOutMessageField.TabIndex = 6;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Message";
             // 
-            // InsertMoneyForm
+            // mRetSumLbl
+            // 
+            this.mRetSumLbl.AutoSize = true;
+            this.mRetSumLbl.Location = new System.Drawing.Point(34, 29);
+            this.mRetSumLbl.Name = "mRetSumLbl";
+            this.mRetSumLbl.Size = new System.Drawing.Size(76, 13);
+            this.mRetSumLbl.TabIndex = 11;
+            this.mRetSumLbl.Text = "Returned sum:";
+            // 
+            // mRetSum
+            // 
+            this.mRetSum.Enabled = false;
+            this.mRetSum.Location = new System.Drawing.Point(125, 26);
+            this.mRetSum.Name = "mRetSum";
+            this.mRetSum.Size = new System.Drawing.Size(120, 20);
+            this.mRetSum.TabIndex = 12;
+            // 
+            // mRetMoneyGB
+            // 
+            this.mRetMoneyGB.Controls.Add(this.mRetSumLbl);
+            this.mRetMoneyGB.Controls.Add(this.mRetSum);
+            this.mRetMoneyGB.Location = new System.Drawing.Point(12, 148);
+            this.mRetMoneyGB.Name = "mRetMoneyGB";
+            this.mRetMoneyGB.Size = new System.Drawing.Size(296, 193);
+            this.mRetMoneyGB.TabIndex = 13;
+            this.mRetMoneyGB.TabStop = false;
+            this.mRetMoneyGB.Text = "Returned money:";
+            // 
+            // OperationResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 410);
-            this.Controls.Add(this.mOutMessageField);
-            this.Controls.Add(this.mCancelBtn);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.mInsertBtn);
-            this.Controls.Add(this.mSumTB);
+            this.ClientSize = new System.Drawing.Size(327, 393);
+            this.Controls.Add(this.mNomGB);
+            this.Controls.Add(this.mOkButton);
+            this.Controls.Add(this.mRetMoneyGB);
             this.Controls.Add(this.label1);
-            this.Name = "InsertMoneyForm";
-            this.Text = "InsertMoneyForm";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Controls.Add(this.mOutMessageField);
+            this.Name = "OperationResultForm";
+            this.Text = "OperationResultForm";
+            this.mNomGB.ResumeLayout(false);
+            this.mNomGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m100NominalField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m50NominalField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m10NominalField)).EndInit();
+            this.mRetMoneyGB.ResumeLayout(false);
+            this.mRetMoneyGB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,10 +223,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox mSumTB;
-        private System.Windows.Forms.Button mInsertBtn;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox mOutMessageField;
+        private System.Windows.Forms.GroupBox mNomGB;
         private System.Windows.Forms.NumericUpDown m500NominalField;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown m100NominalField;
@@ -222,7 +233,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown m10NominalField;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button mCancelBtn;
-        private System.Windows.Forms.TextBox mOutMessageField;
+        private System.Windows.Forms.Button mOkButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label mRetSumLbl;
+        private System.Windows.Forms.TextBox mRetSum;
+        private System.Windows.Forms.GroupBox mRetMoneyGB;
     }
 }

@@ -54,6 +54,12 @@
     <Compile Include="ATMStateForm.Designer.cs">
       <DependentUpon>ATMStateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OperationResultForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OperationResultForm.Designer.cs">
+      <DependentUpon>OperationResultForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ATMStateForm.resx">
       <DependentUpon>ATMStateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OperationResultForm.resx">
+      <DependentUpon>OperationResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartMenu.resx">
       <DependentUpon>StartMenu.cs</DependentUpon>

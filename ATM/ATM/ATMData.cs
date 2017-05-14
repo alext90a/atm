@@ -86,56 +86,90 @@ namespace ATM
 
         public bool tryToGiveAwayMoney(int sum, BILL_TYPE preferedType, ref string outMessage, out Dictionary<BILL_TYPE, int> outputSum)
         {
-            outputSum = new Dictionary<BILL_TYPE, int>();
+            outputSum = new Dictionary<BILL_TYPE, int> {
+                {BILL_TYPE.TYPE_10, 0},
+                {BILL_TYPE.TYPE_50, 0},
+                {BILL_TYPE.TYPE_100, 0 },
+                {BILL_TYPE.TYPE_500, 0 }
+            };
+            if(sum == 0)
+            {
+                outMessage = "Requested sum is zero";
+                return false;
+            }
             if(sum> getMoneySum())
             {
                 outMessage = "Requested sum is not available";
                 return false;
             }
 
-            bool isSumCouldGiveAway = false;
-
-            //if(sum < mMoneyStore[preferedType].getNomainal)
-            int residueByPrefered = sum % mMoneyStore[preferedType].getMoneySum();
-            if (residueByPrefered < mMoneyStore[preferedType].getNominal())
+            int sumNeeded = sum;
+            foreach(var curKey in mMoneyStore.Reverse())
             {
+                if(sumNeeded > mMoneyStore[preferedType].getNominal())
+                {
+                    int prefBillAvailable = mMoneyStore[preferedType].getAmount() - outputSum[preferedType];
+                    int sumAvailaleByPrefBill = mMoneyStore[preferedType].getNominal() * prefBillAvailable;
+                    if(sumNeeded < sumAvailaleByPrefBill)
+                    {
+                        int billWouldBeSpended = sumNeeded / mMoneyStore[preferedType].getNominal();
+                        
+                        outputSum[preferedType] += billWouldBeSpended;
+                        sumNeeded -= billWouldBeSpended * mMoneyStore[preferedType].getNominal();
+                        if (sumNeeded == 0)
+                        {
+                            break;
+                        }
+                    }                    
+                }
 
+                if(sumNeeded > mMoneyStore[curKey.Key].getNominal())
+                {
+                    int prefBillAvailable = mMoneyStore[preferedType].getAmount() - outputSum[preferedType];
+                    int sumAvailaleByPrefBill = mMoneyStore[preferedType].getNominal() * prefBillAvailable;
+                    if (curKey.Key == preferedType)
+                    {
+                        outputSum[curKey.Key] += prefBillAvailable;
+                        sumNeeded -= prefBillAvailable * mMoneyStore[preferedType].getNominal();
+                        if (sumNeeded == 0)
+                        {
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        int curBillAmount = (sumNeeded - sumAvailaleByPrefBill) / mMoneyStore[curKey.Key].getNominal();
+                        outputSum[curKey.Key] += curBillAmount;
+                        sumNeeded -= curBillAmount * mMoneyStore[curKey.Key].getNominal();
+                        if (sumNeeded == 0)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if(sumNeeded == 0)
+            {
+                foreach (var curPair in outputSum)
+                {
+                    mMoneyStore[curPair.Key].tryDecrAmount(curPair.Value);
+                }
+                
             }
             else
             {
-                int billsToRemove = sum / mMoneyStore[preferedType].getNominal();
-                int sumResitual = sum - billsToRemove * mMoneyStore[preferedType].getNominal();
-
-                //mMoneyStore[preferedType].tryDecrAmount(billsToRemove);
-                outputSum.Add(preferedType, billsToRemove);
-                foreach (var curPair in mMoneyStore.Reverse())
-                {
-                    if (curPair.Value.getNominal() > sumResitual || outputSum.ContainsKey(curPair.Key))
-                    {
-                        continue;
-                    }
-                    billsToRemove = sumResitual / mMoneyStore[curPair.Key].getNominal();
-                    sumResitual = sum - billsToRemove * mMoneyStore[curPair.Key].getNominal();
-                    //mMoneyStore[curPair.Key].tryDecrAmount(billsToRemove);
-                    outputSum.Add(curPair.Key, billsToRemove);
-                }    
-                if(sumResitual>0)
-                {
-                    outMessage = "Could not give such sum";
-                    return false;
-                }
-                else
-                {
-                    foreach(var curPair in outputSum)
-                    {
-                        mMoneyStore[curPair.Key].tryDecrAmount(curPair.Value);
-                    }
-                }
+                outMessage = "Could not return such sum";
+                return false;
             }
-            if(MoneyChangedEvent != null)
+
+            outMessage = "Take your money";
+
+            if (MoneyChangedEvent != null)
             {
                 MoneyChangedEvent();
             }
+
             return true;
         } 
 

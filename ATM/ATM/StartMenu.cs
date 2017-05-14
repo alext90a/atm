@@ -12,21 +12,24 @@ namespace ATM
 {
     public partial class StartMenu : Form
     {
-        InsertMoneyForm mInsertMoneyForm = null;
-        GetMoneyForm mGetMoneyForm = null;
-        ATMStateForm mStateForm = null;
+        
+        ATMData mAtmData = null;
         public StartMenu(ATMData atmData)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            mInsertMoneyForm = new InsertMoneyForm(atmData, onInsertMoneyCanceled);
-            mGetMoneyForm = new GetMoneyForm(atmData, onInsertMoneyCanceled);
-            mStateForm = new ATMStateForm(atmData);
+
+            mAtmData = atmData;
+            
+            
+            
         }
 
         private void mInsertMoneyButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            mInsertMoneyForm.Show();
+            InsertMoneyForm insertMoneyForm = new InsertMoneyForm(mAtmData, onInsertMoneyCanceled);
+            insertMoneyForm.StartPosition = FormStartPosition.CenterParent;
+            insertMoneyForm.ShowDialog(this);
         }
 
         void onInsertMoneyCanceled()
@@ -36,18 +39,20 @@ namespace ATM
 
         private void mGetMoneyButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            mGetMoneyForm.Show();
+            GetMoneyForm getMoneyForm = new GetMoneyForm(mAtmData, onInsertMoneyCanceled);
+            getMoneyForm.StartPosition = FormStartPosition.CenterParent;
+            getMoneyForm.ShowDialog(this);
         }
 
         private void mShowBankStatButton_Click(object sender, EventArgs e)
         {
-            mStateForm.Show(this);
+            ATMStateForm stateForm = new ATMStateForm(mAtmData);
+            stateForm.Show(this);
             Point startPoint = new Point();
             startPoint.X = Location.X + Width;
             startPoint.Y = Location.Y;
-            mStateForm.Location = startPoint;
-            mStateForm.StartPosition = FormStartPosition.Manual;
+            stateForm.Location = startPoint;
+            stateForm.StartPosition = FormStartPosition.Manual;
         }
     }
 }

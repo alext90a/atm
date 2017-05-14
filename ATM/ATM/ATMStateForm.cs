@@ -18,6 +18,7 @@ namespace ATM
             InitializeComponent();
             mAtmData = atmData;
             mAtmData.MoneyChangedEvent += onAtmMoneyChanged;
+            onAtmMoneyChanged();
         }
 
         void onAtmMoneyChanged()
