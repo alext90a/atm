@@ -53,10 +53,10 @@
             // 
             // mOutMessageField
             // 
-            this.mOutMessageField.Enabled = false;
             this.mOutMessageField.Location = new System.Drawing.Point(12, 31);
             this.mOutMessageField.Multiline = true;
             this.mOutMessageField.Name = "mOutMessageField";
+            this.mOutMessageField.ReadOnly = true;
             this.mOutMessageField.Size = new System.Drawing.Size(296, 101);
             this.mOutMessageField.TabIndex = 8;
             // 
@@ -79,9 +79,9 @@
             // 
             // m500NominalField
             // 
-            this.m500NominalField.Enabled = false;
             this.m500NominalField.Location = new System.Drawing.Point(74, 98);
             this.m500NominalField.Name = "m500NominalField";
+            this.m500NominalField.ReadOnly = true;
             this.m500NominalField.Size = new System.Drawing.Size(120, 20);
             this.m500NominalField.TabIndex = 5;
             // 
@@ -97,9 +97,9 @@
             // 
             // m100NominalField
             // 
-            this.m100NominalField.Enabled = false;
             this.m100NominalField.Location = new System.Drawing.Point(74, 72);
             this.m100NominalField.Name = "m100NominalField";
+            this.m100NominalField.ReadOnly = true;
             this.m100NominalField.Size = new System.Drawing.Size(120, 20);
             this.m100NominalField.TabIndex = 5;
             // 
@@ -115,9 +115,9 @@
             // 
             // m50NominalField
             // 
-            this.m50NominalField.Enabled = false;
             this.m50NominalField.Location = new System.Drawing.Point(74, 46);
             this.m50NominalField.Name = "m50NominalField";
+            this.m50NominalField.ReadOnly = true;
             this.m50NominalField.Size = new System.Drawing.Size(120, 20);
             this.m50NominalField.TabIndex = 3;
             // 
@@ -133,9 +133,9 @@
             // 
             // m10NominalField
             // 
-            this.m10NominalField.Enabled = false;
             this.m10NominalField.Location = new System.Drawing.Point(74, 20);
             this.m10NominalField.Name = "m10NominalField";
+            this.m10NominalField.ReadOnly = true;
             this.m10NominalField.Size = new System.Drawing.Size(120, 20);
             this.m10NominalField.TabIndex = 1;
             // 
@@ -179,9 +179,9 @@
             // 
             // mRetSum
             // 
-            this.mRetSum.Enabled = false;
             this.mRetSum.Location = new System.Drawing.Point(125, 26);
             this.mRetSum.Name = "mRetSum";
+            this.mRetSum.ReadOnly = true;
             this.mRetSum.Size = new System.Drawing.Size(120, 20);
             this.mRetSum.TabIndex = 12;
             // 

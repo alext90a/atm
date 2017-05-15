@@ -18,9 +18,10 @@ namespace ATM
 
         class BillHolder
         {
-            public BillHolder(int nominal, int maxAmount)
+            public BillHolder(int nominal, int startAmount, int maxAmount)
             {
                 mNominal = nominal;
+                mAmount = startAmount;
                 mMaxAmount = maxAmount;
             }
 
@@ -79,10 +80,10 @@ namespace ATM
         //========================================================
         public ATMData()
         {
-            mMoneyStore.Add(BILL_TYPE.TYPE_10, new BillHolder(10, ATMConstants.kBillMaxAmount10));
-            mMoneyStore.Add(BILL_TYPE.TYPE_50, new BillHolder(50, ATMConstants.kBillMaxAmount50));
-            mMoneyStore.Add(BILL_TYPE.TYPE_100, new BillHolder(100, ATMConstants.kBillMaxAmount100));
-            mMoneyStore.Add(BILL_TYPE.TYPE_500, new BillHolder(500, ATMConstants.kBillMaxAmount500));
+            mMoneyStore.Add(BILL_TYPE.TYPE_10, new BillHolder((int)BILL_TYPE.TYPE_10, ATMConstants.kBillStartAmount10, ATMConstants.kBillMaxAmount10));
+            mMoneyStore.Add(BILL_TYPE.TYPE_50, new BillHolder((int)BILL_TYPE.TYPE_50, ATMConstants.kBillStartAmount50, ATMConstants.kBillMaxAmount50));
+            mMoneyStore.Add(BILL_TYPE.TYPE_100, new BillHolder((int)BILL_TYPE.TYPE_100, ATMConstants.kBillStartAmount100, ATMConstants.kBillMaxAmount100));
+            mMoneyStore.Add(BILL_TYPE.TYPE_500, new BillHolder((int)BILL_TYPE.TYPE_500, ATMConstants.kBillStartAmount500, ATMConstants.kBillMaxAmount500));
         }
         public delegate void OnMoneyStoreChanged();
         public event OnMoneyStoreChanged MoneyChangedEvent; 
@@ -142,6 +143,11 @@ namespace ATM
                     else
                     {
                         int curBillAmount = (sumNeeded - sumAvailaleByPrefBill) / mMoneyStore[curKey.Key].getNominal();
+                        int resid = (sumNeeded - sumAvailaleByPrefBill) % mMoneyStore[curKey.Key].getNominal();
+                        if(resid != 0)
+                        {
+                            ++curBillAmount;
+                        }
                         outputSum[curKey.Key] += curBillAmount;
                         sumNeeded -= curBillAmount * mMoneyStore[curKey.Key].getNominal();
                         if (sumNeeded == 0)

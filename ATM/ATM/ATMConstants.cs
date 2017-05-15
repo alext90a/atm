@@ -12,5 +12,10 @@ namespace ATM
         public static int kBillMaxAmount50 = 10;
         public static int kBillMaxAmount100 = 10;
         public static int kBillMaxAmount500 = 10;
+
+        public static int kBillStartAmount10 = 5;
+        public static int kBillStartAmount50 = 5;
+        public static int kBillStartAmount100 = 5;
+        public static int kBillStartAmount500 = 5;
     }
 }

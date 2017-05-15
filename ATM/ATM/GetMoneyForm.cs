@@ -58,6 +58,14 @@ namespace ATM
             int sum = (int)mSumField.Value;
             sum = (sum / 10) * 10;
             mSumField.Value = sum;
+            if(sum ==0)
+            {
+                mGetMoneyBtn.Enabled = false;
+            }
+            else
+            {
+                mGetMoneyBtn.Enabled = true;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)

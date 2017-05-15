@@ -87,6 +87,7 @@
             // 
             // mGetMoneyBtn
             // 
+            this.mGetMoneyBtn.Enabled = false;
             this.mGetMoneyBtn.Location = new System.Drawing.Point(222, 244);
             this.mGetMoneyBtn.Name = "mGetMoneyBtn";
             this.mGetMoneyBtn.Size = new System.Drawing.Size(75, 23);
