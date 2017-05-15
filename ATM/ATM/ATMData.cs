@@ -116,92 +116,70 @@ namespace ATM
             }
 
             int sumNeeded = requesteSum;
-            int resid = requesteSum;
 
-            int prefBillsReserve = 0;
-            var orderIter = mBillOrder.Find(preferedType);
-            var nextIter = orderIter.Next;
-            int prefBillsProxy = 0;
-            if(nextIter != null)
+            int sumByPrefered = mMoneyStore[preferedType].getMoneySum();
+            int sumByOthers = 0;
+            if(sumByPrefered >= sumNeeded)
             {
-                prefBillsReserve = ((int)nextIter.Value / (int)preferedType) - 1;
-                if(mMoneyStore[preferedType].getAmount()>prefBillsReserve)
-                {
-                    prefBillsProxy = mMoneyStore[preferedType].getAmount() - prefBillsReserve;
-
-                }
+                sumByOthers = sumNeeded - (int)preferedType * (sumNeeded / (int)preferedType);
+            }
+            else
+            {
+                sumByOthers = sumNeeded - sumByPrefered; 
             }
 
-            foreach (var curPair in mMoneyStore.Reverse())
+            int sumByPrevBills = 0;
+            int maxBillAmount = 0;
+            BILL_TYPE maxBillType = BILL_TYPE.TYPE_10;
+            SortedSet<BILL_TYPE> mBillsList = new SortedSet<BILL_TYPE>();
+            mBillsList.Add(preferedType);
+            if (sumByOthers != 0)
             {
-                
-            
-                if (sumNeeded < mMoneyStore[curPair.Key].getNominal() || mMoneyStore[curPair.Key].getMoneySum()==0)
+                foreach(var curPair in mMoneyStore)
                 {
-                    continue;
-                }
-                else
-                {
-                    //try to use prefered
-                    
-
-                    if ((int)preferedType <= sumNeeded && prefBillsProxy > 0)
-                    {
-                        int prefAmountInCurBill = (int)curPair.Key / (int)preferedType;
-
-                        if ((nextIter != null && nextIter.Value == curPair.Key)||curPair.Key == preferedType)
-                        {
-                            prefBillsProxy += prefBillsReserve;
-                        }
-
-                        int replaceAmount = prefBillsProxy / prefAmountInCurBill;
-                        if (replaceAmount > 0)
-                        {
-                            int amountNeeded = sumNeeded / (int)curPair.Key;
-                            int prefBillSpended = 0;
-                            if(replaceAmount > amountNeeded)
-                            {
-                                prefBillSpended = amountNeeded * prefAmountInCurBill;
-                            }
-                            else
-                            {
-                                prefBillSpended = replaceAmount * prefAmountInCurBill;
-                            }
-                            prefBillsProxy -= prefBillSpended;
-                            outputSum[preferedType] += prefBillSpended;
-                            sumNeeded -= prefBillSpended * (int)preferedType;
-                            if(sumNeeded == 0)
-                            {
-                                break;
-                            }
-                            if (sumNeeded < mMoneyStore[curPair.Key].getNominal())
-                            {
-                                continue;
-                            }
-                        }
-
-                    }
                     if(curPair.Key == preferedType)
                     {
+                        
                         continue;
                     }
-
-                    int curBillNeeded = sumNeeded / mMoneyStore[curPair.Key].getNominal();
-                    int billSpended = 0;
-                    if(curBillNeeded > mMoneyStore[curPair.Key].getAmount() - outputSum[curPair.Key])
+                    
+                    if (sumByOthers > (mMoneyStore[curPair.Key].getMoneySum()+sumByPrevBills))
                     {
-                        billSpended = mMoneyStore[curPair.Key].getAmount() - outputSum[curPair.Key];
+                        sumByPrevBills += mMoneyStore[curPair.Key].getMoneySum();
+                        mBillsList.Add(curPair.Key);
                     }
                     else
                     {
-                        billSpended = curBillNeeded;
-                    }
-                    outputSum[curPair.Key] += billSpended;
-                    sumNeeded -= billSpended * mMoneyStore[curPair.Key].getNominal();
-                    if(sumNeeded == 0)
-                    {
+                        int curBillAmount = sumByOthers / (int)curPair.Key;
+                        int curResid = sumByOthers % (int)curPair.Key;
+                        if(curResid != 0 && curResid >sumByPrevBills)
+                        {
+                            curBillAmount += 1;
+                        }
+                        maxBillAmount = curBillAmount;
+                        maxBillType = curPair.Key;
                         break;
                     }
+                }
+
+                sumNeeded = requesteSum;
+                sumNeeded -= maxBillAmount * (int)maxBillType;
+                outputSum[maxBillType] = maxBillAmount;
+                foreach(var curType in mBillsList.Reverse())
+                {
+                    int curBillsNeeded = sumNeeded / (int)curType;
+                    int curBillsAvailable = mMoneyStore[curType].getAmount();
+                    int billSpended = 0;
+                    if(curBillsNeeded >= curBillsAvailable)
+                    {
+                        billSpended = curBillsAvailable;
+                    }
+                    else
+                    {
+                        billSpended = curBillsNeeded;
+                    }
+                    sumNeeded -= billSpended * (int)curType;
+                    outputSum[curType] = billSpended;
                 }
             }
             
