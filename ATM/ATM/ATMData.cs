@@ -122,6 +122,11 @@ namespace ATM
             if(sumByPrefered >= sumNeeded)
             {
                 sumByOthers = sumNeeded - (int)preferedType * (sumNeeded / (int)preferedType);
+                if(sumByOthers == 0)
+                {
+                    outputSum[preferedType] = sumNeeded/(int)preferedType;
+                    sumNeeded = 0;
+                }
             }
             else
             {

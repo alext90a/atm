@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mMax500TB = new System.Windows.Forms.TextBox();
+            this.mMax100TB = new System.Windows.Forms.TextBox();
+            this.mMax50TB = new System.Windows.Forms.TextBox();
+            this.mMax10TB = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.m500NominalField = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.m100NominalField = new System.Windows.Forms.NumericUpDown();
@@ -39,12 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.mSumField = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.mMax10TB = new System.Windows.Forms.TextBox();
-            this.mMax50TB = new System.Windows.Forms.TextBox();
-            this.mMax100TB = new System.Windows.Forms.TextBox();
-            this.mMax500TB = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m100NominalField)).BeginInit();
@@ -75,9 +75,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nominal";
             // 
+            // mMax500TB
+            // 
+            this.mMax500TB.Location = new System.Drawing.Point(188, 118);
+            this.mMax500TB.Name = "mMax500TB";
+            this.mMax500TB.ReadOnly = true;
+            this.mMax500TB.Size = new System.Drawing.Size(47, 20);
+            this.mMax500TB.TabIndex = 11;
+            // 
+            // mMax100TB
+            // 
+            this.mMax100TB.Location = new System.Drawing.Point(188, 92);
+            this.mMax100TB.Name = "mMax100TB";
+            this.mMax100TB.ReadOnly = true;
+            this.mMax100TB.Size = new System.Drawing.Size(47, 20);
+            this.mMax100TB.TabIndex = 10;
+            // 
+            // mMax50TB
+            // 
+            this.mMax50TB.Location = new System.Drawing.Point(188, 65);
+            this.mMax50TB.Name = "mMax50TB";
+            this.mMax50TB.ReadOnly = true;
+            this.mMax50TB.Size = new System.Drawing.Size(47, 20);
+            this.mMax50TB.TabIndex = 9;
+            // 
+            // mMax10TB
+            // 
+            this.mMax10TB.Location = new System.Drawing.Point(188, 40);
+            this.mMax10TB.Name = "mMax10TB";
+            this.mMax10TB.ReadOnly = true;
+            this.mMax10TB.Size = new System.Drawing.Size(47, 20);
+            this.mMax10TB.TabIndex = 8;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Current amount";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(194, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Max";
+            // 
             // m500NominalField
             // 
             this.m500NominalField.Location = new System.Drawing.Point(49, 118);
+            this.m500NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m500NominalField.Name = "m500NominalField";
             this.m500NominalField.ReadOnly = true;
             this.m500NominalField.Size = new System.Drawing.Size(120, 20);
@@ -96,6 +151,11 @@
             // m100NominalField
             // 
             this.m100NominalField.Location = new System.Drawing.Point(49, 92);
+            this.m100NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m100NominalField.Name = "m100NominalField";
             this.m100NominalField.ReadOnly = true;
             this.m100NominalField.Size = new System.Drawing.Size(120, 20);
@@ -114,6 +174,11 @@
             // m50NominalField
             // 
             this.m50NominalField.Location = new System.Drawing.Point(49, 66);
+            this.m50NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m50NominalField.Name = "m50NominalField";
             this.m50NominalField.ReadOnly = true;
             this.m50NominalField.Size = new System.Drawing.Size(120, 20);
@@ -132,6 +197,11 @@
             // m10NominalField
             // 
             this.m10NominalField.Location = new System.Drawing.Point(49, 40);
+            this.m10NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m10NominalField.Name = "m10NominalField";
             this.m10NominalField.ReadOnly = true;
             this.m10NominalField.Size = new System.Drawing.Size(120, 20);
@@ -163,56 +233,6 @@
             this.label6.Size = new System.Drawing.Size(31, 13);
             this.label6.TabIndex = 7;
             this.label6.Text = "Sum:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(194, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Max";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(60, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Current amount";
-            // 
-            // mMax10TB
-            // 
-            this.mMax10TB.Location = new System.Drawing.Point(188, 40);
-            this.mMax10TB.Name = "mMax10TB";
-            this.mMax10TB.ReadOnly = true;
-            this.mMax10TB.Size = new System.Drawing.Size(47, 20);
-            this.mMax10TB.TabIndex = 8;
-            // 
-            // mMax50TB
-            // 
-            this.mMax50TB.Location = new System.Drawing.Point(188, 65);
-            this.mMax50TB.Name = "mMax50TB";
-            this.mMax50TB.ReadOnly = true;
-            this.mMax50TB.Size = new System.Drawing.Size(47, 20);
-            this.mMax50TB.TabIndex = 9;
-            // 
-            // mMax100TB
-            // 
-            this.mMax100TB.Location = new System.Drawing.Point(188, 92);
-            this.mMax100TB.Name = "mMax100TB";
-            this.mMax100TB.ReadOnly = true;
-            this.mMax100TB.Size = new System.Drawing.Size(47, 20);
-            this.mMax100TB.TabIndex = 10;
-            // 
-            // mMax500TB
-            // 
-            this.mMax500TB.Location = new System.Drawing.Point(188, 118);
-            this.mMax500TB.Name = "mMax500TB";
-            this.mMax500TB.ReadOnly = true;
-            this.mMax500TB.Size = new System.Drawing.Size(47, 20);
-            this.mMax500TB.TabIndex = 11;
             // 
             // ATMStateForm
             // 

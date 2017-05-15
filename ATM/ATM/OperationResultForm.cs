@@ -18,6 +18,7 @@ namespace ATM
             
             mOutMessageField.Text = outputMessage;
             //mNomGB.Parent = mRetMoneyGB;
+            
 
             if(returnedSum == 0)
             {

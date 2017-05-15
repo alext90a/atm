@@ -96,6 +96,11 @@
             // m500NominalField
             // 
             this.m500NominalField.Location = new System.Drawing.Point(74, 98);
+            this.m500NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m500NominalField.Name = "m500NominalField";
             this.m500NominalField.Size = new System.Drawing.Size(120, 20);
             this.m500NominalField.TabIndex = 5;
@@ -114,6 +119,11 @@
             // m100NominalField
             // 
             this.m100NominalField.Location = new System.Drawing.Point(74, 72);
+            this.m100NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m100NominalField.Name = "m100NominalField";
             this.m100NominalField.Size = new System.Drawing.Size(120, 20);
             this.m100NominalField.TabIndex = 5;
@@ -132,6 +142,11 @@
             // m50NominalField
             // 
             this.m50NominalField.Location = new System.Drawing.Point(74, 46);
+            this.m50NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m50NominalField.Name = "m50NominalField";
             this.m50NominalField.Size = new System.Drawing.Size(120, 20);
             this.m50NominalField.TabIndex = 3;
@@ -150,6 +165,11 @@
             // m10NominalField
             // 
             this.m10NominalField.Location = new System.Drawing.Point(74, 20);
+            this.m10NominalField.Maximum = new decimal(new int[] {
+            1569325056,
+            23283064,
+            0,
+            0});
             this.m10NominalField.Name = "m10NominalField";
             this.m10NominalField.Size = new System.Drawing.Size(120, 20);
             this.m10NominalField.TabIndex = 1;

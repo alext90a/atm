@@ -46,8 +46,8 @@
             0});
             this.mSumField.Location = new System.Drawing.Point(176, 90);
             this.mSumField.Maximum = new decimal(new int[] {
-            1000000,
-            0,
+            1569325056,
+            23283064,
             0,
             0});
             this.mSumField.Name = "mSumField";
