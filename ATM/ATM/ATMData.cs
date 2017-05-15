@@ -161,26 +161,29 @@ namespace ATM
                         break;
                     }
                 }
-
-                sumNeeded = requesteSum;
-                sumNeeded -= maxBillAmount * (int)maxBillType;
-                outputSum[maxBillType] = maxBillAmount;
-                foreach(var curType in mBillsList.Reverse())
+                if((int)maxBillType * maxBillAmount <= requesteSum)
                 {
-                    int curBillsNeeded = sumNeeded / (int)curType;
-                    int curBillsAvailable = mMoneyStore[curType].getAmount();
-                    int billSpended = 0;
-                    if(curBillsNeeded >= curBillsAvailable)
+                    sumNeeded = requesteSum;
+                    sumNeeded -= maxBillAmount * (int)maxBillType;
+                    outputSum[maxBillType] = maxBillAmount;
+                    foreach (var curType in mBillsList.Reverse())
                     {
-                        billSpended = curBillsAvailable;
+                        int curBillsNeeded = sumNeeded / (int)curType;
+                        int curBillsAvailable = mMoneyStore[curType].getAmount();
+                        int billSpended = 0;
+                        if (curBillsNeeded >= curBillsAvailable)
+                        {
+                            billSpended = curBillsAvailable;
+                        }
+                        else
+                        {
+                            billSpended = curBillsNeeded;
+                        }
+                        sumNeeded -= billSpended * (int)curType;
+                        outputSum[curType] = billSpended;
                     }
-                    else
-                    {
-                        billSpended = curBillsNeeded;
-                    }
-                    sumNeeded -= billSpended * (int)curType;
-                    outputSum[curType] = billSpended;
                 }
+                
             }
             
             
