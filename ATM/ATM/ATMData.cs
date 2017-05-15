@@ -184,7 +184,7 @@ namespace ATM
 
                     int curBillNeeded = sumNeeded / mMoneyStore[curPair.Key].getNominal();
                     int billSpended = 0;
-                    if(curBillNeeded > mMoneyStore[curPair.Key].getAmount())
+                    if(curBillNeeded > mMoneyStore[curPair.Key].getAmount() - outputSum[curPair.Key])
                     {
                         billSpended = mMoneyStore[curPair.Key].getAmount();
                     }
