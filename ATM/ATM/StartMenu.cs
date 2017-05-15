@@ -57,5 +57,10 @@ namespace ATM
             mStateForm.Location = startPoint;
             mStateForm.StartPosition = FormStartPosition.Manual;
         }
+
+        private void mHelpBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://docs.google.com/document/d/1kYYyRPC9Z0SKLHP9dTGTYbeXhQwlCyWfZpSrtgu6ck0/edit?usp=sharing");
+        }
     }
 }

@@ -243,7 +243,7 @@
             this.Controls.Add(this.mSumField);
             this.Controls.Add(this.groupBox1);
             this.Name = "ATMStateForm";
-            this.Text = "ATMStateForm";
+            this.Text = "ATM State";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).EndInit();

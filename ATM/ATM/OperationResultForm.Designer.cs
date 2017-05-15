@@ -227,7 +227,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mOutMessageField);
             this.Name = "OperationResultForm";
-            this.Text = "OperationResultForm";
+            this.Text = "Operation result";
             this.mNomGB.ResumeLayout(false);
             this.mNomGB.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.m500NominalField)).EndInit();

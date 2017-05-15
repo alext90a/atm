@@ -31,6 +31,7 @@
             this.mGetMoneyButton = new System.Windows.Forms.Button();
             this.mInsertMoneyButton = new System.Windows.Forms.Button();
             this.mShowBankStatButton = new System.Windows.Forms.Button();
+            this.mHelpBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mGetMoneyButton
@@ -63,11 +64,22 @@
             this.mShowBankStatButton.UseVisualStyleBackColor = true;
             this.mShowBankStatButton.Click += new System.EventHandler(this.mShowBankStatButton_Click);
             // 
+            // mHelpBtn
+            // 
+            this.mHelpBtn.Location = new System.Drawing.Point(93, 244);
+            this.mHelpBtn.Name = "mHelpBtn";
+            this.mHelpBtn.Size = new System.Drawing.Size(214, 23);
+            this.mHelpBtn.TabIndex = 4;
+            this.mHelpBtn.Text = "Help";
+            this.mHelpBtn.UseVisualStyleBackColor = true;
+            this.mHelpBtn.Click += new System.EventHandler(this.mHelpBtn_Click);
+            // 
             // StartMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(401, 376);
+            this.Controls.Add(this.mHelpBtn);
             this.Controls.Add(this.mShowBankStatButton);
             this.Controls.Add(this.mInsertMoneyButton);
             this.Controls.Add(this.mGetMoneyButton);
@@ -82,6 +94,7 @@
         private System.Windows.Forms.Button mGetMoneyButton;
         private System.Windows.Forms.Button mInsertMoneyButton;
         private System.Windows.Forms.Button mShowBankStatButton;
+        private System.Windows.Forms.Button mHelpBtn;
     }
 }
 
