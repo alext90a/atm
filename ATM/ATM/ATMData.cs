@@ -136,7 +136,7 @@ namespace ATM
             {
                 
             
-                if (sumNeeded < mMoneyStore[curPair.Key].getNominal())
+                if (sumNeeded < mMoneyStore[curPair.Key].getNominal() || mMoneyStore[curPair.Key].getMoneySum()==0)
                 {
                     continue;
                 }
@@ -149,7 +149,7 @@ namespace ATM
                     {
                         int prefAmountInCurBill = (int)curPair.Key / (int)preferedType;
 
-                        if (nextIter != null && nextIter.Value == curPair.Key)
+                        if ((nextIter != null && nextIter.Value == curPair.Key)||curPair.Key == preferedType)
                         {
                             prefBillsProxy += prefBillsReserve;
                         }
@@ -181,12 +181,16 @@ namespace ATM
                         }
 
                     }
+                    if(curPair.Key == preferedType)
+                    {
+                        continue;
+                    }
 
                     int curBillNeeded = sumNeeded / mMoneyStore[curPair.Key].getNominal();
                     int billSpended = 0;
                     if(curBillNeeded > mMoneyStore[curPair.Key].getAmount() - outputSum[curPair.Key])
                     {
-                        billSpended = mMoneyStore[curPair.Key].getAmount();
+                        billSpended = mMoneyStore[curPair.Key].getAmount() - outputSum[curPair.Key];
                     }
                     else
                     {
